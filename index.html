@@ -1,70 +1,189 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>YooxyArt — Free NFT Mint</title>
-<meta name="description" content="Mint a free YooxyArt digital collectible on Robinhood Chain Testnet.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<title>YOOXYART — Genesis Collection</title>
 <style>
-:root{--bg:#0a0b10;--panel:#141722;--line:#2b3040;--text:#f7f8fc;--muted:#aab0c0;--lime:#c8ff5c;--violet:#9d86ff;--cyan:#6ef0e5}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 72% 0%,#29234c 0%,var(--bg) 48%);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
-header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px clamp(18px,5vw,72px);border-bottom:1px solid #ffffff14}
-.brand{display:flex;align-items:center;gap:11px;font-weight:950;letter-spacing:.07em}.mark{width:38px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--lime),var(--cyan));display:grid;place-items:center;color:#10131a;font-size:21px;box-shadow:0 0 28px #c8ff5c20}
-button{border:0;border-radius:999px;padding:13px 19px;font-weight:850;cursor:pointer;transition:transform .15s,opacity .15s}button:hover{transform:translateY(-1px)}button:disabled{opacity:.45;cursor:not-allowed;transform:none}.primary{background:var(--lime);color:#14170c}.secondary{background:#ffffff0b;border:1px solid var(--line);color:var(--text)}
-main{max-width:1140px;margin:auto;padding:58px 22px 34px}.hero{display:grid;grid-template-columns:1fr .92fr;gap:52px;align-items:center}.eyebrow{color:var(--lime);font-weight:850;letter-spacing:.16em;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(43px,6.2vw,78px);line-height:.97;letter-spacing:-.06em;margin:18px 0}.hero h1 span{background:linear-gradient(90deg,var(--lime),var(--cyan));color:transparent;background-clip:text}.lead{color:var(--muted);font-size:17px;line-height:1.75;max-width:520px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 20px}.notice{font-size:12px;color:var(--muted);line-height:1.7}.art-card{position:relative;max-width:465px;width:100%;justify-self:center;aspect-ratio:.86;border-radius:30px;border:1px solid #ffffff25;background:linear-gradient(155deg,#302c53,#171a29 57%,#24343c);padding:18px;box-shadow:0 25px 90px #0008;overflow:hidden}.art-card:before{content:"";position:absolute;width:68%;aspect-ratio:1;border-radius:50%;background:var(--lime);opacity:.95;top:12%;left:12%;filter:drop-shadow(0 0 45px #c8ff5c55)}.art-card:after{content:"";position:absolute;width:48%;aspect-ratio:1;border-radius:43% 57% 54% 46%;background:linear-gradient(135deg,#f5a6ff,#8975ff 70%);top:32%;left:38%;transform:rotate(25deg);box-shadow:0 20px 45px #0007}.orb{position:absolute;z-index:2;top:25%;left:27%;width:42%;height:39%;border-radius:49% 51% 43% 57%;background:linear-gradient(145deg,#fff5d6,#ffc078 55%,#f16b9e);box-shadow:inset -15px -15px 25px #9e437c55,0 18px 30px #0005;transform:rotate(-12deg)}.eye{position:absolute;z-index:3;top:42%;left:39%;width:5%;height:7%;border-radius:50%;background:#211a36;box-shadow:clamp(25px,5vw,44px) 5px 0 #211a36}.smile{position:absolute;z-index:3;top:54%;left:43%;width:9%;height:4%;border-bottom:4px solid #211a36;border-radius:50%}.spark{position:absolute;z-index:4;color:#fff;font-size:32px}.s1{top:13%;right:14%}.s2{bottom:26%;left:12%;font-size:24px}.s3{bottom:34%;right:12%;font-size:22px}.art-label{position:absolute;z-index:5;bottom:18px;left:20px;right:20px;display:flex;justify-content:space-between;align-items:end;gap:12px}.art-label strong{font-size:23px}.art-label small{display:block;color:#d1d4e4;margin-top:4px}.pill{border:1px solid #ffffff33;border-radius:99px;padding:7px 10px;font-size:10px;letter-spacing:.08em;background:#0b0b1288;white-space:nowrap}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:64px 0 26px}.stat{border:1px solid var(--line);background:#ffffff05;border-radius:18px;padding:20px}.stat strong{font-size:25px;display:block}.stat span{color:var(--muted);font-size:13px}.mintbox{margin-top:26px;border:1px solid var(--line);background:linear-gradient(135deg,#181c2a,#11131d);border-radius:24px;padding:26px;display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}.mintbox h2{margin:0 0 8px;font-size:25px}.mintbox p{margin:0;color:var(--muted);line-height:1.6}.status{font-size:13px;color:var(--muted);margin-top:14px;min-height:20px;overflow-wrap:anywhere}.status.ok{color:var(--lime)}.status.err{color:#ff9fba}footer{padding:28px 20px;text-align:center;color:#777f92;font-size:12px;line-height:1.8}a{color:var(--lime)}
-@media(max-width:760px){header{padding:16px 18px}.hero{grid-template-columns:1fr;gap:32px;padding-top:8px}.art-card{max-width:390px}.stats{margin-top:38px}.mintbox{grid-template-columns:1fr}.mintbox button{width:100%}main{padding-top:38px}}
+:root{--bg:#090909;--panel:#121212;--panel2:#181818;--gold:#d8b56d;--gold2:#f2d99b;--muted:#aaa49a;--line:rgba(216,181,109,.22);--white:#f7f3ea}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% -20%,#342713 0%,transparent 42%),var(--bg);color:var(--white);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--gold2);text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{max-width:1160px;margin:auto;padding:0 22px}
+header{height:78px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:.16em;font-size:16px}
+.mark{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold2);border-radius:50%;font-size:20px}
+.btn{border:1px solid var(--gold);background:var(--gold);color:#17120a;font-weight:800;border-radius:8px;padding:12px 17px;transition:.2s}
+.btn:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn.secondary{background:transparent;color:var(--gold2)}
+.btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.hero{padding:76px 0 46px;display:grid;grid-template-columns:1.1fr .9fr;gap:38px;align-items:center}
+.eyebrow{color:var(--gold);letter-spacing:.23em;text-transform:uppercase;font-size:11px;font-weight:800}
+h1{font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(44px,7vw,78px);line-height:.98;letter-spacing:-.04em;margin:18px 0}
+h1 span{color:var(--gold2);font-style:italic}
+.lead{color:#c2bdb3;max-width:520px;line-height:1.8;font-size:15px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.hero-art{min-height:350px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(145deg,#282014,#0f0f0f 55%,#20180c);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border:1px solid rgba(242,217,155,.3);border-radius:50%;width:260px;height:260px}
+.hero-art:after{width:190px;height:190px}
+.sig{font-family:Georgia,serif;color:var(--gold2);font-size:100px;line-height:1;text-shadow:0 0 50px rgba(216,181,109,.25);z-index:1}
+.art-caption{position:absolute;bottom:22px;left:22px;right:22px;display:flex;justify-content:space-between;color:#bcb3a3;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:0 0 70px}
+.stat{padding:22px;border:1px solid var(--line);border-radius:12px;background:rgba(18,18,18,.8)}
+.stat .label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.stat strong{display:block;margin-top:10px;font-size:26px;color:var(--gold2);font-weight:600}
+section{padding:8px 0 70px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:24px}
+h2{font-family:Georgia,'Times New Roman',serif;font-weight:500;font-size:clamp(30px,4vw,43px);margin:8px 0}
+.sub{color:var(--muted);font-size:13px;line-height:1.7}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;overflow:hidden}
+.card-art{aspect-ratio:1/1;background:radial-gradient(circle at 50% 40%,#4a3820,#17130d 52%,#0d0d0d);display:grid;place-items:center;position:relative}
+.card-art .glyph{font-family:Georgia,serif;font-size:68px;color:var(--gold2);text-shadow:0 0 35px #7b5a27}
+.card-art .num{position:absolute;top:13px;left:13px;color:#e3d1a9;font-size:10px;letter-spacing:.14em}
+.card-body{padding:16px}
+.card-body h3{margin:0 0 7px;font-size:15px}
+.card-body p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.card-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #29251e;padding-top:13px;margin-top:15px;color:var(--gold2);font-size:11px}
+.notice{border:1px solid var(--line);background:#17140e;border-radius:10px;padding:14px 16px;color:#c9bda5;font-size:12px;line-height:1.7;margin-top:20px}
+#status{font-size:12px;line-height:1.6;color:#c9bda5;min-height:20px;margin-top:13px;overflow-wrap:anywhere}
+#status.ok{color:#a8dfb4}#status.err{color:#ffaaa0}
+footer{border-top:1px solid var(--line);padding:25px 0 35px;color:var(--muted);font-size:11px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-top:48px}.hero-art{min-height:280px}.stats{margin-bottom:48px}.grid{grid-template-columns:repeat(2,1fr)}header{height:70px}.brand{font-size:13px}.wrap{padding:0 16px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr 1fr;gap:10px}.card-body{padding:12px}.card-body h3{font-size:13px}.card-art .glyph{font-size:54px}.stat{padding:14px}.stat strong{font-size:21px}.stat .label{font-size:9px}.section-head{align-items:start;flex-direction:column}.btn{padding:11px 13px;font-size:13px}}
 </style>
 </head>
 <body>
-<header><div class="brand"><div class="mark">✦</div> YOOXYART</div><button id="connect" class="secondary">Connect wallet</button></header>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="mark">✦</div> YOOXYART</div>
+  <button id="connect" class="btn secondary">Connect wallet</button>
+</header>
+
 <main>
 <section class="hero">
-<div><div class="eyebrow">Genesis test drop • 100 collectibles</div><h1>Art with a little <span>extra soul.</span></h1><p class="lead">Welcome to YooxyArt — a small digital collectible experiment built for curious creators and collectors. Mint your first YooxyArt collectible for free on Robinhood Chain Testnet.</p>
-<div class="actions"><button id="mintTop" class="primary">Mint a free NFT ↗</button><a class="secondary" style="text-decoration:none;padding:13px 19px" href="https://explorer.testnet.chain.robinhood.com/" target="_blank" rel="noreferrer">Explore testnet</a></div>
-<div class="notice">Test environment only. Testnet ETH has no real-world value. A wallet transaction and testnet gas are still required.</div>
-</div>
-<div class="art-card" aria-label="Abstract YooxyArt collectible illustration"><div class="spark s1">✦</div><div class="spark s2">✧</div><div class="spark s3">✦</div><div class="orb"></div><div class="eye"></div><div class="smile"></div><div class="art-label"><div><strong>YooxyArt #?</strong><small>Made to stand apart.</small></div><div class="pill">GENESIS TESTNET</div></div></div>
+  <div>
+    <div class="eyebrow">Genesis Collection · Testnet</div>
+    <h1>Art with a<br><span>lasting signature.</span></h1>
+    <p class="lead">A small collection built on-chain. Discover the Genesis drop, connect a compatible wallet, and mint your collectible on Robinhood Chain Testnet.</p>
+    <div class="actions">
+      <button id="mint" class="btn">Mint your NFT ↗</button>
+      <a class="btn secondary" href="https://explorer.testnet.chain.robinhood.com/address/0x86bc09156fD7B614Add91c0BaDE9CD82545f0C46" target="_blank" rel="noopener">View contract</a>
+    </div>
+    <div id="status" role="status" aria-live="polite">Connect a wallet to get started.</div>
+  </div>
+  <div class="hero-art" aria-label="YOOXYART gold Genesis emblem">
+    <div class="sig">✦</div>
+    <div class="art-caption"><span>YXYA / GENESIS</span><span>Edition 001—100</span></div>
+  </div>
 </section>
-<section class="stats"><div class="stat"><strong id="supply">— / 100</strong><span>Minted so far</span></div><div class="stat"><strong>0 ETH</strong><span>Mint price</span></div><div class="stat"><strong>Robinhood</strong><span>Chain Testnet</span></div></section>
-<section class="mintbox"><div><h2>Your first YooxyArt is waiting.</h2><p>Connect an EVM wallet, switch to Robinhood Chain Testnet, and mint one collectible. One mint per wallet in this demo.</p><div id="status" class="status">Connect your wallet to begin. Contract must be deployed first.</div></div><button id="mint" class="primary">Mint free NFT</button></section>
+
+<div class="stats">
+  <div class="stat"><div class="label">Minted</div><strong id="supply">— / 100</strong></div>
+  <div class="stat"><div class="label">Remaining</div><strong id="remaining">—</strong></div>
+  <div class="stat"><div class="label">Mint price</div><strong>Free*</strong></div>
+</div>
+
+<section id="collection">
+  <div class="section-head">
+    <div><div class="eyebrow">The collection</div><h2>Genesis Gallery</h2><div class="sub">A preview of the collection's visual identity.</div></div>
+    <a href="https://explorer.testnet.chain.robinhood.com/address/0x86bc09156fD7B614Add91c0BaDE9CD82545f0C46" target="_blank" rel="noopener">Explore on-chain ↗</a>
+  </div>
+  <div class="grid" id="gallery">
+    <article class="card"><div class="card-art"><span class="num">YXYA · 001</span><span class="glyph">✦</span></div><div class="card-body"><h3>Genesis Mark</h3><p>First light. A signature for the collection.</p><div class="card-foot"><span>GENESIS</span><span>TESTNET</span></div></div></article>
+    <article class="card"><div class="card-art" style="background:radial-gradient(circle at 50% 40%,#3c3020,#17130d 52%,#0d0d0d)"><span class="num">YXYA · 002</span><span class="glyph">◇</span></div><div class="card-body"><h3>Golden Frame</h3><p>Form, balance, and a hint of light.</p><div class="card-foot"><span>GENESIS</span><span>TESTNET</span></div></div></article>
+    <article class="card"><div class="card-art" style="background:radial-gradient(circle at 50% 40%,#302719,#17130d 52%,#0d0d0d)"><span class="num">YXYA · 003</span><span class="glyph">◈</span></div><div class="card-body"><h3>Quiet Orbit</h3><p>A minimal emblem for digital ownership.</p><div class="card-foot"><span>GENESIS</span><span>TESTNET</span></div></div></article>
+  </div>
+  <div class="notice">Gallery note: these three cards are design previews, not verified images of individual minted tokens. The current contract interface shared with us does not expose token metadata or token URI functions, so the site cannot yet automatically load each NFT's artwork. *Free mint means the contract charges no mint price; network gas fees may still apply.</div>
+</section>
 </main>
-<footer>YooxyArt is an independent demo project and is not affiliated with or endorsed by Robinhood.<br>Never share your seed phrase or private key with a website.</footer>
+<footer><span>© YOOXYART · Genesis Collection</span><span>Robinhood Chain Testnet · <a href="https://explorer.testnet.chain.robinhood.com/" target="_blank" rel="noopener">Block explorer</a></span></footer>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.5/dist/ethers.umd.min.js"></script>
 <script>
-const NETWORK = {chainId:'0xb626',chainName:'Robinhood Chain Testnet',nativeCurrency:{name:'Ether',symbol:'ETH',decimals:18},rpcUrls:['https://robinhood-testnet.g.alchemy.com/v2/alch_dKeFcVLkixDe9Wotqelso'],blockExplorerUrls:['https://explorer.testnet.chain.robinhood.com/']};
-// After deploying contracts/FreeNFT.sol, paste the deployed address here.
+const NETWORK = {
+  chainId: '0xb626',
+  chainName: 'Robinhood Chain Testnet',
+  nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+  rpcUrls: ['https://rpc.testnet.chain.robinhood.com'],
+  blockExplorerUrls: ['https://explorer.testnet.chain.robinhood.com/']
+};
 const CONTRACT_ADDRESS = '0x86bc09156fD7B614Add91c0BaDE9CD82545f0C46';
-const ABI = ['function mint() external','function totalSupply() view returns (uint256)','function MAX_SUPPLY() view returns (uint256)','function hasMinted(address) view returns (bool)'];
+const ABI = [
+  'function mint() external',
+  'function totalSupply() view returns (uint256)',
+  'function MAX_SUPPLY() view returns (uint256)',
+  'function hasMinted(address) view returns (bool)'
+];
 let provider, signer, contract;
 const $ = id => document.getElementById(id);
-function status(msg,type=''){ $('status').textContent=msg; $('status').className='status '+type; }
-function isConfigured(){return /^0x[a-fA-F0-9]{40}$/.test(CONTRACT_ADDRESS);}
-async function connect(){
- if(!window.ethereum){status('No EVM wallet found. Install MetaMask or use a compatible wallet.','err');return;}
- try{
-  await window.ethereum.request({method:'eth_requestAccounts'});
-  try{await window.ethereum.request({method:'wallet_switchEthereumChain',params:[{chainId:NETWORK.chainId}]});}
-  catch(e){if(e.code===4902) await window.ethereum.request({method:'wallet_addEthereumChain',params:[NETWORK]});else throw e;}
-  provider=new ethers.BrowserProvider(window.ethereum); signer=await provider.getSigner();
-  const addr=await signer.getAddress();$('connect').textContent=addr.slice(0,6)+'…'+addr.slice(-4);
-  if(!isConfigured()){status('Wallet connected. Next, deploy the contract and paste its address into index.html.','');return;}
-  contract=new ethers.Contract(CONTRACT_ADDRESS,ABI,signer); await refreshSupply();
-  status('Wallet connected to Robinhood Chain Testnet. Ready to mint.','ok');
- }catch(e){status(e.shortMessage||e.message||'Wallet connection failed.','err');}
+function status(msg, type='') { $('status').textContent = msg; $('status').className = type; }
+function isConfigured() { return /^0x[a-fA-F0-9]{40}$/.test(CONTRACT_ADDRESS); }
+async function connect() {
+  if (!window.ethereum) {
+    status('No compatible wallet detected. Open this page in a browser with a wallet installed.', 'err');
+    return;
+  }
+  try {
+    await window.ethereum.request({ method: 'eth_requestAccounts' });
+    try {
+      await window.ethereum.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: NETWORK.chainId }] });
+    } catch (e) {
+      if (e.code === 4902) await window.ethereum.request({ method: 'wallet_addEthereumChain', params: [NETWORK] });
+      else throw e;
+    }
+    provider = new ethers.BrowserProvider(window.ethereum);
+    signer = await provider.getSigner();
+    const addr = await signer.getAddress();
+    $('connect').textContent = addr.slice(0, 6) + '…' + addr.slice(-4);
+    contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
+    await refreshSupply();
+    const already = await contract.hasMinted(addr);
+    status(already ? 'Wallet connected. This wallet has already minted.' : 'Wallet connected to Robinhood Chain Testnet.', 'ok');
+  } catch (e) {
+    status(e.shortMessage || e.message || 'Wallet connection failed.', 'err');
+  }
 }
-async function refreshSupply(){try{const [s,m]=await Promise.all([contract.totalSupply(),contract.MAX_SUPPLY()]);$('supply').textContent=s.toString()+' / '+m.toString();}catch(e){$('supply').textContent='— / 100';}}
-async function mint(){
- if(!signer){await connect();if(!signer)return;}
- if(!isConfigured()){status('Setup needed: deploy FreeNFT.sol, then paste its contract address into index.html. See README.md.','err');return;}
- try{
-  const addr=await signer.getAddress();if(await contract.hasMinted(addr)){status('This wallet has already minted its demo NFT.','err');return;}
-  $('mint').disabled=true;$('mintTop').disabled=true;status('Confirm the mint transaction in your wallet…');
-  const tx=await contract.mint();status('Transaction sent: '+tx.hash);
-  await tx.wait();await refreshSupply();status('Mint successful! Your YooxyArt collectible is on-chain. Tx: '+tx.hash,'ok');
- }catch(e){status(e.shortMessage||e.reason||e.message||'Mint failed.','err');}
- finally{$('mint').disabled=false;$('mintTop').disabled=false;}
+async function refreshSupply() {
+  try {
+    if (!provider) provider = new ethers.JsonRpcProvider(NETWORK.rpcUrls[0], Number(NETWORK.chainId));
+    const readContract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider);
+    const [s, m] = await Promise.all([readContract.totalSupply(), readContract.MAX_SUPPLY()]);
+    $('supply').textContent = `${s.toString()} / ${m.toString()}`;
+    $('remaining').textContent = (m - s).toString();
+  } catch (e) {
+    $('supply').textContent = 'Unavailable';
+    $('remaining').textContent = '—';
+  }
 }
-$('connect').addEventListener('click',connect);$('mint').addEventListener('click',mint);$('mintTop').addEventListener('click',mint);
-if(window.ethereum){window.ethereum.on?.('accountsChanged',()=>location.reload());window.ethereum.on?.('chainChanged',()=>location.reload());}
+async function mint() {
+  if (!signer) { await connect(); if (!signer) return; }
+  try {
+    const addr = await signer.getAddress();
+    if (await contract.hasMinted(addr)) { status('This wallet has already minted its NFT.', 'err'); return; }
+    $('mint').disabled = true;
+    status('Review the mint details in your wallet before confirming.');
+    const tx = await contract.mint();
+    status('Transaction submitted: ' + tx.hash);
+    await tx.wait();
+    await refreshSupply();
+    status('Mint successful! Your YOOXYART collectible is on-chain. Transaction: ' + tx.hash, 'ok');
+  } catch (e) {
+    status(e.shortMessage || e.reason || e.message || 'Mint failed.', 'err');
+  } finally {
+    $('mint').disabled = false;
+  }
+}
+$('connect').addEventListener('click', connect);
+$('mint').addEventListener('click', mint);
+refreshSupply();
+if (window.ethereum) {
+  window.ethereum.on?.('accountsChanged', () => location.reload());
+  window.ethereum.on?.('chainChanged', () => location.reload());
+}
 </script>
-</body></html>
+</body>
+</html>
